@@ -1054,6 +1054,7 @@ var wasmExports = createWasm();
 var ___wasm_call_ctors = createExportWrapper('__wasm_call_ctors');
 var _sumOfNInts = Module['_sumOfNInts'] = createExportWrapper('sumOfNInts');
 var _addInts = Module['_addInts'] = createExportWrapper('addInts');
+var _subInts = Module['_subInts'] = createExportWrapper('subInts');
 var ___errno_location = createExportWrapper('__errno_location');
 var _fflush = Module['_fflush'] = createExportWrapper('fflush');
 var _emscripten_stack_init = () => (_emscripten_stack_init = wasmExports['emscripten_stack_init'])();

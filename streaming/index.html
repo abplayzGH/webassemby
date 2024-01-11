@@ -13,29 +13,38 @@
             fetch("streaming.wasm"), {}
         ).then(results => exports = results.instance.exports);
 
-        function run_wasm() {
+        function sumOfNInts() {
             var a = document.querySelector("#a").value;
             var sum = exports.sumOfNInts(a);
 
             document.querySelector("#ret")
                 .innerHTML += `${a} => ${sum}<br/>`;
-
-        function run_wasm2() {
+        }
+        function addInts() {
+            var a = document.querySelector("#a").value;
             var b = document.querySelector("#b").value;
-            var c = document.querySelector("#c").value;
 
-            var sum = exports.addInts(b,c);
+            var sum = exports.addInts(a,b);
 
             document.querySelector("#ret")
-                .innerHTML += `${b} + ${c} => ${sum}<br/>`;
+                .innerHTML += `${a} + ${b} => ${sum}<br/>`;
+        }
+        function subInts() {
+            var a = document.querySelector("#a").value;
+            var b = document.querySelector("#b").value;
+
+            var sum = exports.subInts(a,b);
+
+            document.querySelector("#ret")
+                .innerHTML += `${a} - ${b} => ${sum}<br/>`;
         }
     </script>
 
     <input type="number" id="a">
     <input type="number" id="b">
-    <input type="number" id="c">
-    <button onclick="run_wasm()">Trigger</button>
-    <button onclick="run_wasm2()">Trigger2</button>
+    <button onclick="sumOfNInts()">Sum of Nums</button>
+    <button onclick="addInts()">Add Nums</button>
+    <button onclick="subInts()">Sub Nums</button>
     <p id="ret"></p>
 </body>
 

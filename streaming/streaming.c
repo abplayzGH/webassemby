@@ -9,3 +9,8 @@ EMSCRIPTEN_KEEPALIVE
 int addInts(int a ,int b) {
     return a + b;
 }
+
+EMSCRIPTEN_KEEPALIVE
+int subInts(int a ,int b) {
+    return a - b;
+}
