@@ -15,7 +15,7 @@ function addInts() {
     var a = document.querySelector("#a").value;
     var b = document.querySelector("#b").value;
 
-    var sum = exports.addInts(a,b);
+    var sum = exports.add(a,b);
 
     document.querySelector("#ret")
         .innerHTML += `${a} + ${b} => ${sum}<br/>`;
@@ -24,8 +24,26 @@ function subInts() {
     var a = document.querySelector("#a").value;
     var b = document.querySelector("#b").value;
 
-    var sum = exports.subInts(a,b);
+    var sum = exports.sub(a,b);
 
     document.querySelector("#ret")
         .innerHTML += `${a} - ${b} => ${sum}<br/>`;
+}
+function mulInts() {
+    var a = document.querySelector("#a").value;
+    var b = document.querySelector("#b").value;
+
+    var sum = exports.mul(a,b);
+
+    document.querySelector("#ret")
+        .innerHTML += `${a} * ${b} => ${sum}<br/>`;
+}
+function divInts() {
+    var a = document.querySelector("#a").value;
+    var b = document.querySelector("#b").value;
+
+    var sum = exports.divide(a,b);
+
+    document.querySelector("#ret")
+        .innerHTML += `${a} / ${b} => ${sum}<br/>`;
 }
