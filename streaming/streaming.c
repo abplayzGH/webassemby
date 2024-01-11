@@ -1,16 +1,13 @@
 #include <emscripten.h>
 
-EMSCRIPTEN_KEEPALIVE
-int sumOfNInts(int n) {
-    return n * (n + 1) / 2;
-}
+int add(int a, int b);
+int sub(int a, int b);
+int mul(int a, int b);
+int divide(int a, int b);
 
 EMSCRIPTEN_KEEPALIVE
-int addInts(int a ,int b) {
-    return a + b;
-}
-
-EMSCRIPTEN_KEEPALIVE
-int subInts(int a ,int b) {
-    return a - b;
+int sumOfNInts(int n)
+{
+    // return n * (n + 1) / 2;
+    return divide(mul(n, add(n, 1)), 2);
 }
