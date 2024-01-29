@@ -12,3 +12,8 @@ int accumulate(int *arr, int n) {
     }
     return sum;
 }
+
+EMSCRIPTEN_KEEPALIVE
+const char *getString() {
+    return "Hello, World!";
+}

@@ -1198,6 +1198,7 @@ var wasmImports = {
 var wasmExports = createWasm();
 var ___wasm_call_ctors = createExportWrapper('__wasm_call_ctors');
 var _accumulate = Module['_accumulate'] = createExportWrapper('accumulate');
+var _getString = Module['_getString'] = createExportWrapper('getString');
 var _main = Module['_main'] = createExportWrapper('main');
 var ___errno_location = createExportWrapper('__errno_location');
 var _fflush = Module['_fflush'] = createExportWrapper('fflush');
