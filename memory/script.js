@@ -26,9 +26,11 @@ function run_wasm() {
 function get_string() {
     var ptr = exports.getString();
     var bytes = new Uint8Array(memory.buffer, ptr);
+    var strlen = 0;
+    while (bytes[strlen] != 0) strlen++;
 
     var str = new TextDecoder("utf8").decode(
-        bytes.slice(0, 13)
+        bytes.slice(0, strlen)
     );
     console.log(str);
     }
