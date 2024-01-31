@@ -17,12 +17,12 @@ function run_wasm() {
     var arr = new Uint32Array(memory.buffer);
     for (var i = 0; i < 10; i++) {
         arr[i] = i * 2;
-    }}
+    }
     var sum = exports.accumulate(0, 10);
 
     document.querySelector("#ret")
         .innerHTML += `${sum}<br>`;
-
+}
 function get_string() {
     var ptr = exports.getString();
     var bytes = new Uint8Array(memory.buffer, ptr);
