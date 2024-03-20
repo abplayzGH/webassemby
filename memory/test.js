@@ -8,8 +8,7 @@ WebAssembly.instantiateStreaming(fetch("malloc.wasm"), {
     js: {
         mem: memory
     },
-    env:{
-        //emscripten_resize_heap: function(delta) { memory.grow(delta);}
+    env: {
         emscripten_resize_heap: memory.grow
     }
 }).then(results => {
@@ -18,8 +17,8 @@ WebAssembly.instantiateStreaming(fetch("malloc.wasm"), {
 });
 
 function run_wasm() {
-    var arr = [0,2,4,6,8,10,12,14,16,18,20];
-    var ptr = encodeArray(arr, 11, 4)
+    var arr = [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20];
+    var ptr = encodeArray(arr, 11, 4);
 
     var sum = exports.accumulate(ptr, 11);
 
@@ -28,11 +27,14 @@ function run_wasm() {
     document.querySelector("#ret")
         .innerHTML += `${sum}<br>`;
 }
+
 function get_string() {
     var str = decodeString(exports.getString());
     console.log(str);
-    }
-function encodeArray(arr, len, sizeof= 1) {
+    navigator.clipboard.writeText(str);
+}
+
+function encodeArray(arr, len, sizeof = 1) {
     var ptr;
     var out;
     if (sizeof == 8) {
@@ -60,12 +62,13 @@ function decodeArray(ptr, len) {
 }
 
 function decodeString(ptr, len) {
-    return new TextDecoder("utf8").decode(decodeArray(ptr, len))
+    return new TextDecoder("utf8").decode(decodeArray(ptr, len));
 }
 
 function decodeString(ptr) {
     var bytes = new Uint8Array(memory.buffer, ptr);
     var strlen = 0;
     while (bytes[strlen] != 0) strlen++;
+
     return new TextDecoder("utf8").decode(bytes.slice(0, strlen));
 }
